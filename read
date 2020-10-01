@@ -1,0 +1,6 @@
+awk -F "\"*,\"*" '{print $2}' /u01/app/jenkins-slave/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv > /u01/app/jenkins-slave/column.txt
+st="$(grep -n "DNS" column.txt | head -n 1 | cut -d: -f1)"
+st3="$(($st +1))"
+st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"
+st4="$(($st2 - 4))"
+sed -n "$st3","$st4"p column.txt > serverlist.txt

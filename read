@@ -3,4 +3,4 @@ st="$(grep -n "DNS" column.txt | head -n 1 | cut -d: -f1)"
 st3="$(($st +1))"
 st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"
 st4="$(($st2 - 4))"
-sed -n "$st3","$st4"p column.txt > serverlist1.txt
+sed -n "$st3","$st4"p column.txt > serverlist2.txt

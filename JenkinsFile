@@ -1,21 +1,3 @@
 pipeline {
- agent any
- 
-  stage('check files copied') {
- steps {
- sh """
- pwd
- ls -ltr
- """
- 
- }
- }
- 
-   stage('loading groovy script') {
- steps {
-load 'mihir879/Test/read.sh'
- }
- }
- 
- }
-
+load 'Test/read.sh'
+}

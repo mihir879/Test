@@ -1,3 +1,2 @@
-pipeline {
 load 'Test/read.sh'
-}
+

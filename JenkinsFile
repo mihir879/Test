@@ -24,7 +24,7 @@ pipeline {
  
    stage('Read') {
  steps {
-load 'Test/read.sh'
+load 'Test/read'
  }
  }
  

@@ -1,2 +1,33 @@
+  
+pipeline {
+ agent any
+ 
+ 
+ stages {
+ //stage('Git file copy') {
+ //steps {
+ //git branch: 'master', url: 'git@github.com:NRMA/oracle-cloud-infrastructure.git'
+   //git branch: "master", url: "${params.GIT_REPO}"
+ 
+  //  }
+//}
+ 
+ stage('check files copied') {
+ steps {
+ sh """
+ pwd
+ ls -ltr
+ """
+ 
+ }
+ }
+ 
+   stage('Read') {
+ steps {
 load 'Test/read.sh'
+ }
+ }
+ 
+ }
+}
 

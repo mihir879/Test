@@ -1,5 +1,5 @@
 #!/bin/bash
-awk -F "\"*,\"*" '{print $2}' /u01/app/jenkins-slave/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv > /u01/app/jenkins-slave/column.txt
+awk -F "\"*,\"*" '{print $2}' /tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv >  /tmp/MIHIR/column.txt
 st="$(grep -n "DNS" column.txt | head -n 1 | cut -d: -f1)"
 st3="$(($st +1))"
 st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"

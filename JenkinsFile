@@ -6,7 +6,7 @@ pipeline {
  stages {
  //stage('Git file copy') {
  //steps {
- //git branch: 'master', url: 'git@github.com:NRMA/oracle-cloud-infrastructure.git'
+ //git branch: 'master', url: 'https://github.com/mihir879/Test.git'
    //git branch: "master", url: "${params.GIT_REPO}"
  
   //  }

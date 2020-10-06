@@ -13,7 +13,7 @@ pipeline {
  
    stage('loading groovy script') {
  steps {
-load 'mihir879/Test/hello.groovy'
+load 'mihir879/Test/read.sh'
  }
  }
  

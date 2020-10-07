@@ -1,10 +1,10 @@
 #!/bin/bash
 cd /tmp/MIHIR
-awk -F "\"*,\"*" '{print $2}' /tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv >  /tmp/MIHIR/column.txt
-st="$(grep -n "DNS" column.txt | head -n 1 | cut -d: -f1)"
+awk -F "\"*,\"*" '{print $1}' /tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv >  /tmp/MIHIR/column.txt
+st="$(grep -n "IP" column.txt | head -n 1 | cut -d: -f1)"
 st3="$(($st+1))"
 echo $st3
-st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"
+st2="$(grep -n "Patches by Host" column.txt | head -n 1 | cut -d: -f1)"
 st4="$(($st2 - 3))"
 sed -n "$st3","$st4"p column.txt > serverlist2.csv
 sed -i '1 i\Servers' serverlist2.csv

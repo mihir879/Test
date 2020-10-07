@@ -19,12 +19,14 @@ pipeline {
  
  }
  }
- 
-   stage('Read') {
- steps {
-sh read
- }
- }
+ stage('Build') {
+            steps {
+                sh 'echo "Starting Build"'
+                sh '''
+                    sh read
+                '''
+            }
+        }
  
  }
 }

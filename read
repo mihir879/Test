@@ -7,4 +7,4 @@ echo $st3
 st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"
 st4="$(($st2 - 3))"
 sed -n "$st3","$st4"p column.txt > serverlist2.csv
-sed -i '1 i\aServers' serverlist2.csv
+sed -i '1 i\Servers' serverlist2.csv

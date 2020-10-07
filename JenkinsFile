@@ -4,13 +4,11 @@ pipeline {
  
  
  stages {
- //stage('Git file copy') {
- //steps {
- //git branch: 'master', url: 'https://github.com/mihir879/Test.git'
-   //git branch: "master", url: "${params.GIT_REPO}"
- 
-  //  }
-//}
+ stage('Git file copy') {
+ steps {
+ git branch: 'master', url: 'https://github.com/mihir879/Test.git'
+   }
+}
  
  stage('check files copied') {
  steps {
@@ -24,7 +22,7 @@ pipeline {
  
    stage('Read') {
  steps {
-sh 'Test/read'
+sh read
  }
  }
  

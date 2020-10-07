@@ -2,7 +2,9 @@
 awk -F "\"*,\"*" '{print $2}' /tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv >  /tmp/MIHIR/column.txt
 cd /tmp/MIHIR
 st="$(grep -n "DNS" column.txt | head -n 1 | cut -d: -f1)"
+echo $st
 st3="$(($st +1))"
+echo $st3
 st2="$(grep -n "QID" column.txt | head -n 1 | cut -d: -f1)"
 st4="$(($st2 - 3))"
 sed -n "$st3","$st4"p column.txt > serverlist2.txt

@@ -8,3 +8,4 @@ st2="$(grep -n "Patches by Host" column.txt | head -n 1 | cut -d: -f1)"
 st4="$(($st2 - 3))"
 sed -n "$st3","$st4"p column.txt > serverlist2.csv
 sed -i '1 i\Servers' serverlist2.csv
+sed 's/"//' serverlist2.csv

@@ -26,7 +26,7 @@ pipeline {
  stage('Patching Compute OCI Instances') {
  steps {
                 script {
-                         def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
+                         def util = load  ("${WORKSPACE}/test_patch.groovy")
                          util.csvReader("/tmp/MIHIR/serverlist.csv")
                          			}
                 }

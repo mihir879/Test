@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh 'echo "Starting Build"'
                 sh '''
-                    sh read ${parameters.File_Name}
+                    sh read $File_Name
                 '''
             }
         }

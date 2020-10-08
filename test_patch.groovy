@@ -145,6 +145,4 @@ def csvReader(String Filename)
    }
   readHeader = true
  }
-}
-
 return this

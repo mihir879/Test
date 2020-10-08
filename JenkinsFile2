@@ -1,3 +1,5 @@
+def FILENAME2= readFile '/tmp/MIHIR/serverlist.csv
+
 pipeline {
  agent any
  
@@ -22,10 +24,7 @@ pipeline {
             }
         }
  
- environment {
-    FILENAME2= readFile '/tmp/MIHIR/serverlist.csv'
-    }
-    
+
  stage('Patching Compute OCI Instances') {
  steps {
                 script {

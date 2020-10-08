@@ -1,5 +1,3 @@
-def FILENAME2= readFile '/tmp/MIHIR/serverlist.csv
-
 pipeline {
  agent any
  
@@ -19,7 +17,7 @@ pipeline {
             steps {
                 sh 'echo "Starting Build"'
                 sh '''
-                    sh read $File_Name
+                    sh read ${params.File_Name}
                 '''
             }
         }
@@ -29,7 +27,7 @@ pipeline {
  steps {
                 script {
                          def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
-                         util.csvReader("$FILENAME2")
+                         util.csvReader("/tmp/MIHIR/serverlist.csv")
                          			}
                 }
             }

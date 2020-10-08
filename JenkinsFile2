@@ -1,0 +1,39 @@
+pipeline {
+ agent any
+ 
+  parameters{
+          string(name: 'File_Name', defaultValue: '/tmp/MIHIR/ScheduledReportNRMAMonthlyPatchReportOracleCloud-2020-09-21030104.csv') 
+          }
+ 
+ stages {
+ 
+ stage('Git file copy') {
+ steps {
+ git branch: 'master', url: 'https://github.com/mihir879/Test.git'
+   }
+}
+ 
+  stage('Build') {
+            steps {
+                sh 'echo "Starting Build"'
+                sh '''
+                    sh read $File_Name
+                '''
+            }
+        }
+ 
+ environment {
+    FILENAME2= readFile '/tmp/MIHIR/serverlist.csv'
+    }
+    
+ stage('Patching Compute OCI Instances') {
+ steps {
+                script {
+                         def util = load  ("${WORKSPACE}/Patch/test_patch.groovy")
+                         util.csvReader("$FILENAME2")
+                         			}
+                }
+            }
+ }
+ 
+ }

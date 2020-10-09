@@ -92,7 +92,7 @@ def csvReader(String Filename)
 			servers=fields[serversindex]
 			println "servers: $servers"
 			
-			try{ 
+			
 			  buildJob('K03_OPC_KSPLICE_Install_N_Patch', 0, (String[])["REMOTEHOST=$servers", "REMOTEUSER=opc", "REMOTEKEY=/home/opc/.ssh/forsan"])
 					//build job: 'K03_OPC_KSPLICE_Install_N_Patch', 
 					//parameters: [
@@ -100,13 +100,10 @@ def csvReader(String Filename)
 					//string(name: 'REMOTEUSER', value: 'opc'),
 					//string(name: 'REMOTEKEY', value: '/home/opc/.ssh/forpatch')
 					//]
-				}
-				catch(err) {
-					println "Error patching $servers but will move to next machine."
-				}
+							
 	println "Done ksplice patching"
 			    println "Done ksplice, start yum update"
-				try{ 
+				
 				buildJob('K03.1_OS_YUM_UPDATES', 0, (String[])["REMOTEHOST=$servers", "REMOTEUSER=opc", "REMOTEKEY=/home/opc/.ssh/forsan"])
 				//build job: 'K03.1_OS_YUM_UPDATES', 
 					//parameters: [
@@ -114,33 +111,26 @@ def csvReader(String Filename)
 					//string(name: 'REMOTEUSER', value: 'opc'),
 					//string(name: 'REMOTEKEY', value: '/home/opc/.ssh/forpatch')
 					//]
-					}
-				catch(err) {
-					println "Error with yum $ip but will move to next machine."
-				}
+					
+				
 			  
 				println "Done YUM patching"
 				
 				println "Done YUM Update, checking qualys agent"
-				try{ 
+				
 				buildJob('K02_Install_Qualys', 0, (String[])["REMOTEHOST=$servers", "REMOTEUSER=opc", "REMOTEKEY=/home/opc/.ssh/forsan"])
 				// build job: 'K02_Install_Qualys', 
 					//parameters: [string(name: 'REMOTEHOST', value: ip), 
 					//string(name: 'REMOTEUSER', value: 'opc'), 
 					//string(name: 'REMOTEKEY', value: '/home/opc/.ssh/forpatch')
 					//]
-					}
-				catch(err) {
-					println "Error with qualys $servers but will move to next machine."
-				}
+					
+		
 			  
 				println "Done Qualys checking"		
 			
 			} // if IP matches string
-			else { // not exact 
-				println "SKIPING:  Host with ip $servers doesn't match "
-				
-			}
+			
     
    }
   readHeader = true

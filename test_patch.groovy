@@ -131,14 +131,14 @@ def csvReader(String Filename)
 					//]
 					}
 				catch(err) {
-					println "Error with qualys $ip but will move to next machine."
+					println "Error with qualys $servers but will move to next machine."
 				}
 			  
 				println "Done Qualys checking"		
 			
 			} // if IP matches string
 			else { // not exact 
-				println "SKIPING:  Host with ip $ip doesn't match $SubnetFilter"
+				println "SKIPING:  Host with ip $servers doesn't match $SubnetFilter"
 				
 			}
     

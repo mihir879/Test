@@ -138,7 +138,7 @@ def csvReader(String Filename)
 			
 			} // if IP matches string
 			else { // not exact 
-				println "SKIPING:  Host with ip $servers doesn't match $SubnetFilter"
+				println "SKIPING:  Host with ip $servers doesn't match "
 				
 			}
     
